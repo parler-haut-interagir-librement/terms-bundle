@@ -4,9 +4,34 @@ All notable changes to `phil/terms-bundle` will be documented in this file.
 
 Updates should follow the [Keep a CHANGELOG](https://keepachangelog.com/) principles.
 
+## 0.3.0-alpha - 2026-11-24
+
+Each acceptance proves the text accepted, with two nullable columns of `phil_terms_acceptance`. See [Upgrading from
+0.2](doc/installation.md#upgrading-from-02).
+
+### Added
+
+- `Acceptance` keeps `locale`, the locale whose text the member was shown, and `textSha256`, the SHA-256 of the HTML
+  `PolicyTexts::toHtml()` renders from that text; `phil_terms_acceptance` keeps them in `locale` and `text_sha256`,
+  both nullable for the acceptances recorded before them. `Terms::accept()` takes the locale shown as a last argument
+  — the acceptance page and `SignupAcceptances::record()` give the request's —, falls back to `default_locale`, then
+  to the first locale of the version, and `Terms::textMatches()` checks the proof against the version kept.
+  `PolicyVersion::textLocale()` names the locale whose text `text()` gives. The export of `phil/privacy-bundle` lists
+  both. The [acceptance guide](doc/acceptance.md#proving-the-text-accepted) says how to prove the text accepted.
+
+### Changed
+
+- The development requirements accept `phil/notifications-bundle` 0.3 and `phil/privacy-bundle` 0.3, the minor versions
+  of their main branches and no earlier one, so that the package installs on its own beside those bundles.
+- Requires the latest minor of each dependency (`doctrine/dbal` 4.6, `twig/twig` 3.31, `symfony/ux-twig-component`
+  3.8, `symfony/service-contracts` 3.8, …), and of each development requirement (`doctrine/orm` 3.8,
+  `doctrine/doctrine-bundle` 3.4, `easycorp/easyadmin-bundle` 5.10, `symfony/ux-toolkit` 3.8, …). The dates and
+  booleans of a row are read by the DBAL types themselves instead of the static `Type::getType()`, which DBAL 4.6
+  deprecates.
+
 ## 0.2.0-alpha - 2026-11-18
 
-The next version is 0.2.0-alpha: members and policies compare byte by byte on MySQL and MariaDB. See [Upgrading from
+Members and policies compare byte by byte on MySQL and MariaDB. See [Upgrading from
 0.1](doc/installation.md#upgrading-from-01).
 
 ### Changed
