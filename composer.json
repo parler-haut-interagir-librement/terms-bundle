@@ -36,16 +36,16 @@
         "symfony/service-contracts": "^3.8",
         "symfony/translation-contracts": "^3.8",
         "symfony/ux-twig-component": "^3.8",
-        "twig/twig": "^3.31"
+        "twig/twig": "^3.31.1"
     },
     "require-dev": {
         "doctrine/doctrine-bundle": "^3.4",
         "doctrine/orm": "^3.8",
-        "easycorp/easyadmin-bundle": "^5.10",
+        "easycorp/easyadmin-bundle": "^5.10.4",
         "phil/ip-anonymizer": "^0.1@dev",
         "phil/legal-notices": "^0.1@dev",
         "phil/legal-notices-bundle": "^0.1@dev",
-        "phil/notifications-bundle": "^0.3@dev",
+        "phil/notifications-bundle": "^0.4@dev",
         "phil/privacy-bundle": "^0.3@dev",
         "phil/text-diff": "^0.1@dev",
         "phil/ujo": "^0.1@dev",
@@ -67,7 +67,10 @@
         "symfony/twig-bundle": "^8.2",
         "symfony/ux-toolkit": "^3.8",
         "symfony/yaml": "^8.2",
-        "twig/html-extra": "^3.31"
+        "twig/html-extra": "^3.31.1"
+    },
+    "conflict": {
+        "easycorp/easyadmin-bundle": "<5.10.4"
     },
     "suggest": {
         "doctrine/orm": "To add the two tables to the schema the ORM generates, for doctrine:migrations:diff",

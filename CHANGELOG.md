@@ -4,6 +4,24 @@ All notable changes to `phil/terms-bundle` will be documented in this file.
 
 Updates should follow the [Keep a CHANGELOG](https://keepachangelog.com/) principles.
 
+## 0.3.1-alpha - 2026-11-25
+
+### Changed
+
+- The development requirements take `twig/html-extra` 3.31.1 or later, which fixes the advisories of its sandbox
+  published on 2026-11-24.
+- The development requirements accept `phil/notifications-bundle` 0.4, the minor version of its main branch and no
+  earlier one, so that the package installs on its own beside that bundle.
+- The development requirements take `easycorp/easyadmin-bundle` 5.10.4 or later, the release that fixes
+  GHSA-f7rw-7wx5-3c54: a link to a route, like the menu links of this bundle, passed its `routeParams` to the controller
+  of that route as arguments.
+
+### Security
+
+- Requires `twig/twig` 3.31.1 or later, which fixes the advisories of its sandbox published on 2026-11-24.
+- Conflicts with `easycorp/easyadmin-bundle` below 5.10.4, the release that fixes GHSA-f7rw-7wx5-3c54: an application
+  cannot install this bundle next to a vulnerable EasyAdmin, which stays optional.
+
 ## 0.3.0-alpha - 2026-11-24
 
 Each acceptance proves the text accepted, with two nullable columns of `phil_terms_acceptance`. See [Upgrading from
